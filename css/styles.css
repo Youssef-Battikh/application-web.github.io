@@ -1,0 +1,25 @@
+body {
+  background-color: #E0E0E0 ;
+}
+
+.inpcol{
+    background-color: #F5F5F5;
+    border: 1px solid #CCCCCC;
+}
+
+.butcol.btn{
+    background-color: #000000;
+    border: 1px solid #000000;
+}
+.butcol.btn:hover{
+    background-color: #8B0000;
+    border: 1px solid #8B0000;
+}
+
+.card {
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}

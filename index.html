@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Routine Picker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">GymPro</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup.html">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="routines.html">Routines</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Welcome to GymPro</h1>
+      <p class="text-center">
+        At GymPro, we believe that every fitness journey is unique, and we’re
+        here to make yours easier and more effective. Whether you're a seasoned
+        gym-goer or just starting out, our site offers a variety of expertly
+        designed gym routines tailored to your goals. Want to take control of
+        your fitness? Our platform also lets you build your own custom routines,
+        empowering you to craft a workout plan that fits your individual needs
+        and lifestyle. Let’s make fitness personal, fun, and achievable—your
+        perfect routine, your way.
+      </p>
+
+      <div class="row mt-5">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bro Split</h5>
+              <p class="card-text">
+                A classic routine focusing on one muscle group per day.
+              </p>
+              <a
+                href="#"
+                class="btn btn-primary"
+                onclick="selectRoutine('Bro Split')"
+                >Select</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">PPL (Push, Pull, Legs)</h5>
+              <p class="card-text">
+                A balanced routine for overall muscle development.
+              </p>
+              <a href="#" class="btn btn-primary" onclick="selectRoutine('PPL')"
+                >Select</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Custom Routine</h5>
+              <p class="card-text">
+                Create your own personalized workout routine.
+              </p>
+              <a
+                href="#"
+                class="btn btn-primary"
+                onclick="showCustomRoutineForm()"
+                >Create</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="customRoutineForm" class="mt-5" style="display: none">
+        <h2>Create Custom Routine</h2>
+        <form id="routineForm">
+          <div class="mb-3">
+            <label for="routineName" class="form-label">Routine Name</label>
+            <input type="text" class="form-control" id="routineName" required />
+          </div>
+          <div id="workoutDays"></div>
+          <button
+            type="button"
+            class="btn btn-secondary mt-2"
+            onclick="addWorkoutDay()"
+          >
+            Add Workout Day
+          </button>
+          <button type="submit" class="btn btn-primary mt-2">
+            Save Routine
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
