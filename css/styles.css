@@ -10,6 +10,7 @@ body {
 .butcol.btn{
     background-color: #000000;
     border: 1px solid #000000;
+    color: #F5F5F5;
 }
 .butcol.btn:hover{
     background-color: #8B0000;
