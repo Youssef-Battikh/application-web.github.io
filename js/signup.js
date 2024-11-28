@@ -14,7 +14,7 @@ document
       console.log("Sign up data:", { username, email, password });
 
       alert("Sign up successful! Please log in.");
-      window.location.href = "login.html";
+      //window.location.href = "login.html";
     }
 
     this.classList.add("was-validated");

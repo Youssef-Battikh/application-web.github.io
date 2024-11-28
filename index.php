@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header("Location: routines.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="#">GymPro</a>
+        <div id="google_translate_element"></div>
         <button
           class="navbar-toggler"
           type="button"
@@ -28,18 +36,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
+              <a class="nav-link active" aria-current="page" href="index.php"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="signup.html">Sign Up</a>
+              <a class="nav-link" href="signup.php">Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
+              <a class="nav-link" href="login.php">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="routines.html">Routines</a>
+              <a class="nav-link disabled" href="routines.php">Routines</a>
             </li>
           </ul>
         </div>
@@ -62,10 +70,10 @@
               <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                 <a
                   class="btn btn-primary btn-lg px-4 me-sm-3 butcol"
-                  href="signup.html"
+                  href="signup.php"
                   >Get Started</a
                 >
-                <a class="btn btn-outline-dark btn-lg px-4" href="login.html"
+                <a class="btn btn-outline-dark btn-lg px-4" href="login.php"
                   >Login</a
                 >
               </div>
@@ -149,7 +157,7 @@
                   aria-describedby="button-addon2"
                 />
                 <button
-                  class="btn btn-outline-light"
+                  class="btn btn-outline-light  "
                   type="button"
                   id="button-addon2"
                 >
@@ -169,6 +177,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
