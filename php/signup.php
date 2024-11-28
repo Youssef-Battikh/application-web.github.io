@@ -16,6 +16,7 @@ if (isset($_POST["submit"])) {
 
     if ($result->num_rows > 0) {
         echo "<script>alert('Username or Email is already taken');</script>";
+        echo "<script>window.location.href = '../signup.php';</script>";
     } else {
         // Hash the password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -26,10 +27,10 @@ if (isset($_POST["submit"])) {
 
         if ($query->execute()) {
             echo "<script>alert('Sign up successful! Please log in.');</script>";
-            echo "<script>window.location.href = '../login.html';</script>";
+            echo "<script>window.location.href = '../login.php';</script>";
         } else {
             echo "<script>alert('Something went wrong. Please try again later.');</script>";
-            echo "<script>window.location.href = '../signup.html';</script>";
+            echo "<script>window.location.href = '../signup.php';</script>";
         }
     }
 
