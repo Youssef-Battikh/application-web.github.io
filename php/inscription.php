@@ -42,5 +42,7 @@ if (isset($_POST["submit"])) {
     }
 }
 $conn->close();
-header('Location: ../signup.php?error=' . $error);
+if (!$error == '') {
+    header('Location: ../signup.php?error=' . $error);
+}
 ?>

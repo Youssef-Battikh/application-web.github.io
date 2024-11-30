@@ -1,4 +1,5 @@
 <?php
+// login session check
 session_start();
 if (!isset($_SESSION['user_id'])) {
   header("Location: index.php");
@@ -18,6 +19,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
+  <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">GymPro
@@ -53,9 +55,9 @@ if (!isset($_SESSION['user_id'])) {
       </div>
     </div>
   </nav>
-
+  <!-- dashbord containers -->
   <div class="container-fluid mt-5 dashboard-container">
-    <h1 class="text-center mb-5">Welcome to Your Fitness Journey</h1>
+    <h1 class="text-center fw-bold mb-5">Welcome to Your Fitness Journey</h1>
     <div class="row justify-content-center">
       <div class="col-lg-4 mb-4">
         <div class="card dashboard-card custom-routines">
@@ -101,8 +103,7 @@ if (!isset($_SESSION['user_id'])) {
       </div>
     </div>
   </div>
-
-
+  <!-- footer -->
   <footer class="bg-dark text-light py-4">
     <div class="container">
       <div class="row">
