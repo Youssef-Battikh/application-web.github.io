@@ -201,15 +201,15 @@ body {
 }
 
 .custom-routines {
-  background: linear-gradient(135deg, #2F4F76 , #8D9FB6 );
+  background: linear-gradient(135deg, #2f4f76, #8d9fb6);
 }
 
 .create-routine {
-  background: linear-gradient(135deg, #556B2F, #A2B68D );
+  background: linear-gradient(135deg, #556b2f, #a2b68d);
 }
 
 .builtin-routines {
-  background: linear-gradient(135deg, #8b0000, #B68D8D );
+  background: linear-gradient(135deg, #8b0000, #b68d8d);
 }
 
 /* Responsive adjustments */
@@ -222,11 +222,95 @@ body {
 
 /* Add some animation to the cards */
 @keyframes cardPop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .dashboard-card:hover {
   animation: cardPop 0.3s ease-in-out;
 }
+.social-login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-login p {
+  color: #333333;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #f5f5f5;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-btn.google {
+  background-color: #762f2f; /* Google red */
+}
+
+.social-btn.google:hover {
+  background-color: #000000;
+  color: #f5f5f5;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.social-btn.facebook {
+  background-color: #2f4f76; /* Facebook blue */
+}
+
+.social-btn.facebook:hover {
+  background-color: #000000;
+  color: #f5f5f5;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.social-btn i {
+  margin-right: 10px;
+}
+
+.btni {
+  margin-right: 10px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.actions div {
+  display: flex;
+  align-items: center;
+}
+
+.actions label {
+  margin-left: 5px;
+  color: #333333;
+}
+
+.actions button {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+  

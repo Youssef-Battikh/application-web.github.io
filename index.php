@@ -84,7 +84,7 @@ if (isset($_SESSION['user_id'])) {
           <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
             <i class="bi bi-collection"></i>
           </div>
-          <h3 class="h4 fw-bold">Expert-Designed Routines</h3>
+          <h3 class="h4 fw-bold"><i class="fa-solid fa-wand-magic-sparkles"></i>Expert-Designed Routines</h3>
           <p>
             Access a variety of professionally crafted workout plans suitable
             for all fitness levels.
@@ -94,7 +94,7 @@ if (isset($_SESSION['user_id'])) {
           <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
             <i class="bi bi-building"></i>
           </div>
-          <h3 class="h4 fw-bold">Customizable Workouts</h3>
+          <h3 class="h4 fw-bold"><i class="fa-solid fa-pen-to-square"></i>Customizable Workouts</h3>
           <p>
             Create and tailor your own routines to match your specific goals
             and preferences.
@@ -104,7 +104,7 @@ if (isset($_SESSION['user_id'])) {
           <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
             <i class="bi bi-toggles2"></i>
           </div>
-          <h3 class="h4 fw-bold">Progress Tracking</h3>
+          <h3 class="h4 fw-bold"><i class="fa-solid fa-circle-user"></i>Progress Tracking</h3>
           <p>
             Monitor your fitness journey with easy-to-use tools and stay
             motivated to reach your targets.

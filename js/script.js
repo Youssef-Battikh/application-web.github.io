@@ -1,3 +1,4 @@
+// Google Translate DropBox
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
@@ -8,6 +9,7 @@ function googleTranslateElementInit() {
     "google_translate_element"
   );
 }
+// Show Password Button
 document.addEventListener("DOMContentLoaded", function () {
   const passwordInput = document.getElementById("password");
   const showPasswordCheckbox = document.getElementById("showPassword");
