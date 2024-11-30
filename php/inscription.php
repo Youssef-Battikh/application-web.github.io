@@ -10,8 +10,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
     if ($name == "" || $email == "" || $password == "") {
-        echo "<script>alert('Please fill up the form');</script>";
-        echo "<script>window.location.href = '../signup.php';</script>";
+        $error = urlencode('Please fill up the form.');
     } else {
         // Duplicated username or email check
         $duplicate = $conn->prepare("SELECT * FROM users WHERE name = ? OR email = ?");
@@ -20,8 +19,7 @@ if (isset($_POST["submit"])) {
         $result = $duplicate->get_result();
 
         if ($result->num_rows > 0) {
-            echo "<script>alert('Username or Email is already taken');</script>";
-            echo "<script>window.location.href = '../signup.php';</script>";
+            $error = urlencode('Username or Email already taken.');
         } else {
             // Password hash
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -34,8 +32,7 @@ if (isset($_POST["submit"])) {
                 echo "<script>alert('Sign up successful! Please log in.');</script>";
                 echo "<script>window.location.href = '../login.php';</script>";
             } else {
-                echo "<script>alert('Something went wrong. Please try again later.');</script>";
-                echo "<script>window.location.href = '../signup.php';</script>";
+                $error = urlencode('Something went wrong. Please try again later.');
             }
         }
         $duplicate->close();
@@ -45,4 +42,5 @@ if (isset($_POST["submit"])) {
     }
 }
 $conn->close();
+header('Location: ../signup.php?error=' . $error);
 ?>

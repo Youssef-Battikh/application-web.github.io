@@ -5,6 +5,7 @@ if (isset($_SESSION['user_id'])) {
   header("Location: routines.php");
   exit();
 }
+$error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +51,12 @@ if (isset($_SESSION['user_id'])) {
   <!-- form -->
   <div class="container mt-5 contmod">
     <h2 class="text-center fw-bold mb-5">Sign Up for GymPro</h2>
+    <?php if ($error): ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><i class="fa-solid fa-triangle-exclamation"></i>Error!</strong> <?php echo htmlspecialchars($error); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
     <form id="signupForm" class="needs-validation" action="php/inscription.php" method="post" novalidate>
       <div id="errorMessages" class="error error-message alert " role="alert"></div>
       <div class="mb-3">
@@ -78,10 +85,10 @@ if (isset($_SESSION['user_id'])) {
       <div class="social-login">
         <p>Or Sign-up using:</p>
         <button type="button" class="btn social-btn google">
-          <i class="fa-brands fa-google"></i> Login with Gmail
+          <i class="fa-brands fa-google"></i> Sign-up with Gmail
         </button>
         <button type="button" class="btn social-btn facebook">
-          <i class="fa-brands fa-facebook"></i> Login with Facebook
+          <i class="fa-brands fa-facebook"></i> Sign-up with Facebook
         </button>
       </div>
     </form>
