@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-if(!empty($_SESSION["id"])){
+if (!empty($_SESSION["id"])) {
     header("location: ../routines.html");
 }
 
