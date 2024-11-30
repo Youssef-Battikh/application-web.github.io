@@ -1,4 +1,5 @@
 <?php
+// login session check
 session_start();
 if (isset($_SESSION['user_id'])) {
   header("Location: routines.php");
@@ -18,6 +19,7 @@ if (isset($_SESSION['user_id'])) {
 </head>
 
 <body>
+  <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">GymPro</a>
@@ -44,7 +46,7 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </div>
   </nav>
-
+  <!-- header -->
   <header class="py-5">
     <div class="container px-5">
       <div class="row gx-5 justify-content-center">
@@ -67,7 +69,7 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </div>
   </header>
-
+  <!-- section -->
   <section class="py-5">
     <div class="container px-5">
       <div class="row gx-5 justify-content-center">
@@ -111,7 +113,7 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </div>
   </section>
-
+  <!-- footer -->
   <footer class="bg-dark text-light py-4">
     <div class="container">
       <div class="row">
