@@ -1,13 +1,11 @@
 <?php
+// login session check
 require_once 'php/config.php';
-
-// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
   header("Location: index.php");
   exit();
 }
-
-// Get the user's name from the database
+// fetching user's username
 $id = $_SESSION['user_id'];
 $sql = "SELECT name FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
@@ -19,11 +17,9 @@ if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $name = $row['name'];
 } else {
-  $name = "User"; // Default name if not found
+  $name = "User"; // default name
 }
-
 $stmt->close();
-// Don't close the connection here as it might be needed later in the script
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +35,7 @@ $stmt->close();
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
       <a class="navbar-brand" href="#">GymPro
       </a>
@@ -77,10 +73,11 @@ $stmt->close();
   <!-- dashbord containers -->
   <div class="container-fluid mt-5 dashboard-container">
     <h1 class="text-center fw-bold mb-5">Welcome to Your Fitness Journey</h1>
+    <!-- user name display -->
     <h4 class="text-center mb-5 small-title">Hey <?php echo htmlspecialchars($name); ?>, let's crush those fitness
-      goals! Dive into your
-      personalized
-      routines or explore our pre-built options below to take your journey to the next level</h4>
+      goals! Dive into your personalized routines or explore our pre-built options below to take your journey to the
+      next level
+    </h4>
     <div class="row justify-content-center">
       <div class="col-lg-4 mb-4">
         <div class="card dashboard-card custom-routines">

@@ -18,9 +18,9 @@ if (isset($_SESSION['user_id'])) {
   <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body id="preloader">
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
       <a class="navbar-brand" href="#">GymPro</a>
       <div id="google_translate_element"></div>

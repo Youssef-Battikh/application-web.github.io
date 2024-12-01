@@ -1,18 +1,11 @@
 <?php
-session_start();
+// login session check
+require_once 'php/config.php';
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
-
-$conn = new mysqli("localhost", "root", "", "fitness_planner", 3306);
-
-// Debug connection issues
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch routines for the logged-in user
+// fetching user's already created routines
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM routine WHERE id = ?";
 $stmt = $conn->prepare($sql);
@@ -26,7 +19,6 @@ while ($row = $result->fetch_assoc()) {
 }
 $stmt->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +32,8 @@ $stmt->close();
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
         <div class="container">
             <a class="navbar-brand" href="#">GymPro
             </a>
@@ -75,7 +68,7 @@ $stmt->close();
             </div>
         </div>
     </nav>
-
+    <!-- routine creation container -->
     <div class="container mt-5">
         <h1 class="text-center fw-bold mb-5">Your Custom Fitness Routines</h1>
         <h4 class="text-center mb-5 small-title">Designed by you, for you. Unlock your potential with the routines
@@ -96,7 +89,7 @@ $stmt->close();
                     </div>
                 </div>
             </div>
-            <?php foreach ($routines as $routine): ?>
+            <?php foreach ($routines as $routine): ?> <!-- custom routines display -->
                 <div class="col-lg-6 mb-4">
                     <div class="card dashboard-card custom-routines h-100">
                         <div class="card-body d-flex flex-column">
@@ -104,9 +97,6 @@ $stmt->close();
                                 <i class="fa-solid fa-link"></i> <?php echo htmlspecialchars($routine['name']); ?>
                             </h2>
                             <p class="card-text flex-grow-1"><?php echo htmlspecialchars($routine['description']); ?></p>
-                            <div class="mt-auto">
-                                <!-- Week exercises here -->
-                            </div>
                             <a href="view_routine.php?routine_nbr=<?php echo $routine['nbr']; ?>"
                                 class="btn btn-lg btn-outline-light mt-3">
                                 View Full Routine <i class="fas fa-chevron-right ms-2"></i>

@@ -5,7 +5,7 @@ if (isset($_SESSION['user_id'])) {
   header("Location: routines.php");
   exit();
 }
-$error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : null;
+$error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : null; // sign-up error display
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,7 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
       <a class="navbar-brand" href="#">GymPro</a>
       <div id="google_translate_element"></div>
@@ -49,49 +49,49 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
     </div>
   </nav>
   <!-- form -->
-    <div class="container mt-5 contmod">
-      <h2 class="text-center fw-bold mb-5">Sign Up for GymPro</h2>
-      <?php if ($error): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <strong><i class="fa-solid fa-triangle-exclamation"></i>Error!</strong> <?php echo htmlspecialchars($error); ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <div class="container mt-5 contmod">
+    <h2 class="text-center fw-bold mb-5">Sign Up for GymPro</h2>
+    <?php if ($error): ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert"> <!-- sign-up error placeholder -->
+        <strong><i class="fa-solid fa-triangle-exclamation"></i>Error!</strong> <?php echo htmlspecialchars($error); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+    <form id="signupForm" class="needs-validation" action="php/inscription.php" method="post" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control inpcol" id="username" name="username" required />
+        <div class="invalid-feedback">Please choose a username.</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control inpcol" id="email" name="email" required />
+        <div class="invalid-feedback">Please provide a valid email.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control inpcol" id="password" name="password" required minlength="8" />
+        <div class="invalid-feedback">
+          Password must be at least 8 characters long.
         </div>
-      <?php endif; ?>
-      <form id="signupForm" class="needs-validation" action="php/inscription.php" method="post" novalidate>
-        <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
-          <input type="text" class="form-control inpcol" id="username" name="username" required />
-          <div class="invalid-feedback">Please choose a username.</div>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control inpcol" id="email" name="email" required />
-          <div class="invalid-feedback">Please provide a valid email.</div>
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control inpcol" id="password" name="password" required minlength="8" />
-          <div class="invalid-feedback">
-            Password must be at least 8 characters long.
-          </div>
-        </div>
-        <div class="mb-3 form-check actions">
-          <input type="checkbox" class="form-check-input nocb" id="showPassword">
-          <label class="form-check-label" for="showPassword">Show password</label>
-          <button type="submit" class="btn butcol" name="submit"><i class="fa-solid fa-user-plus btni"></i>Sign
-            Up</button>
-        </div>
-        <div class="social-login">
-          <p>Or Sign-up using:</p>
-          <button type="button" class="btn social-btn google">
-            <i class="fa-brands fa-google"></i> Sign-up with Gmail
-          </button>
-          <button type="button" class="btn social-btn facebook">
-            <i class="fa-brands fa-facebook"></i> Sign-up with Facebook
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+      <div class="mb-3 form-check actions">
+        <input type="checkbox" class="form-check-input nocb" id="showPassword">
+        <label class="form-check-label" for="showPassword">Show password</label>
+        <button type="submit" class="btn butcol" name="submit"><i class="fa-solid fa-user-plus btni"></i>Sign
+          Up</button>
+      </div>
+      <div class="social-login">
+        <p>Or Sign-up using:</p>
+        <button type="button" class="btn social-btn google">
+          <i class="fa-brands fa-google"></i> Sign-up with Gmail
+        </button>
+        <button type="button" class="btn social-btn facebook">
+          <i class="fa-brands fa-facebook"></i> Sign-up with Facebook
+        </button>
+      </div>
+    </form>
+  </div>
   <!-- footer -->
   <footer class="bg-dark text-light py-4">
     <div class="container">

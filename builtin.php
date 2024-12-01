@@ -6,7 +6,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
         <div class="container">
             <a class="navbar-brand" href="#">GymPro
             </a>
@@ -59,9 +58,9 @@ if (!isset($_SESSION['user_id'])) {
     <!-- container -->
     <div class="container mt-5">
         <h1 class="text-center fw-bold mb-5">Unlock Your Potential with Our Expert-Designed Routines</h1>
-        <h4 class="text-center mb-5 small-title">Take your training to the next level with expertly crafted fitness
-            plans. Whether you’re tackling the Bro Split or powering through Push-Pull-Legs, these routines are designed
-            to help you excel. Choose your path and start building your best self today!</h4>
+        <h4 class="text-center mb-5 small-title">Take your training to the next level with our expertly crafted fitness
+            plans. These routines are designed to help you excel. Choose your path and start building your best self
+            today!</h4>
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <div class="card dashboard-card builtin-routines h-100">
