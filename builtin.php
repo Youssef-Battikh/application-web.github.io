@@ -1,108 +1,10 @@
 <?php
+// login session check
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
-
-// Define the built-in routines
-$routines = [
-    [
-        'id' => 'bro-split',
-        'title' => 'Bro Split',
-        'description' => 'A classic bodybuilding split that targets different muscle groups on separate days, allowing for focused training and recovery.',
-        'schedule' => [
-            'Monday' => [
-                ['name' => 'Incline bench press', 'sets' => 4],
-                ['name' => 'Bench press', 'sets' => 4],
-                ['name' => 'Decline bench press', 'sets' => 4],
-                ['name' => 'Dips', 'sets' => 4],
-                ['name' => 'Push-down', 'sets' => 4],
-            ],
-            'Tuesday' => [
-                ['name' => 'Deadlift', 'sets' => 4],
-                ['name' => 'Lat pulldown', 'sets' => 4],
-                ['name' => 'Cable row', 'sets' => 4],
-                ['name' => 'Bicep curl', 'sets' => 4],
-                ['name' => 'Hammer curl', 'sets' => 4],
-            ],
-            'Wednesday' => [
-                ['name' => 'Rest day', 'sets' => 0],
-            ],
-            'Thursday' => [
-                ['name' => 'Side lateral raise', 'sets' => 4],
-                ['name' => 'Overhead press', 'sets' => 4],
-                ['name' => 'Face pull', 'sets' => 4],
-                ['name' => 'Barbell shrug', 'sets' => 4],
-                ['name' => 'Dumbbell shrug', 'sets' => 4],
-            ],
-            'Friday' => [
-                ['name' => 'Seated calf raise', 'sets' => 4],
-                ['name' => 'Standing calf raise', 'sets' => 4],
-                ['name' => 'Squat', 'sets' => 4],
-                ['name' => 'Leg extensions', 'sets' => 4],
-                ['name' => 'Leg press', 'sets' => 4],
-                ['name' => 'Leg curl', 'sets' => 4],
-            ],
-            'Saturday' => [
-                ['name' => 'Rest day', 'sets' => 0],
-            ],
-            'Sunday' => [
-                ['name' => 'Rest day', 'sets' => 0],
-            ],
-        ],
-    ],
-    [
-        'id' => 'ppl',
-        'title' => 'PPL (Push, Pull, Legs)',
-        'description' => 'A balanced routine that groups muscles with similar functions, allowing for frequent training of each muscle group while providing adequate recovery time.',
-        'schedule' => [
-            'Monday' => [
-                ['name' => 'Incline bench press', 'sets' => 4],
-                ['name' => 'Bench press', 'sets' => 4],
-                ['name' => 'Overhead press', 'sets' => 4],
-                ['name' => 'Dips', 'sets' => 4],
-                ['name' => 'Push-down', 'sets' => 4],
-            ],
-            'Tuesday' => [
-                ['name' => 'Deadlift', 'sets' => 4],
-                ['name' => 'Lat pulldown', 'sets' => 4],
-                ['name' => 'Side lateral raise', 'sets' => 4],
-                ['name' => 'Face pull', 'sets' => 4],
-                ['name' => 'Bicep curl', 'sets' => 4],
-                ['name' => 'Hammer curl', 'sets' => 4],
-            ],
-            'Wednesday' => [
-                ['name' => 'Standing calf raise', 'sets' => 4],
-                ['name' => 'Squat', 'sets' => 4],
-                ['name' => 'Leg extensions', 'sets' => 4],
-                ['name' => 'Leg press', 'sets' => 4],
-                ['name' => 'Leg curl', 'sets' => 4],
-            ],
-            'Thursday' => [
-                ['name' => 'Rest day', 'sets' => 0],
-            ],
-            'Friday' => [
-                ['name' => 'Incline bench press', 'sets' => 4],
-                ['name' => 'Bench press', 'sets' => 4],
-                ['name' => 'Overhead press', 'sets' => 4],
-                ['name' => 'Dips', 'sets' => 4],
-                ['name' => 'Push-down', 'sets' => 4],
-            ],
-            'Saturday' => [
-                ['name' => 'Deadlift', 'sets' => 4],
-                ['name' => 'Lat pulldown', 'sets' => 4],
-                ['name' => 'Side lateral raise', 'sets' => 4],
-                ['name' => 'Face pull', 'sets' => 4],
-                ['name' => 'Bicep curl', 'sets' => 4],
-                ['name' => 'Hammer curl', 'sets' => 4],
-            ],
-            'Sunday' => [
-                ['name' => 'Rest day', 'sets' => 0],
-            ],
-        ],
-    ],
-];
 ?>
 
 <!DOCTYPE html>
@@ -118,10 +20,10 @@ $routines = [
 </head>
 
 <body>
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-dumbbell me-2"></i>GymPro
+            <a class="navbar-brand" href="#">GymPro
             </a>
             <div id="google_translate_element"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -132,7 +34,7 @@ $routines = [
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="routines.php">
-                            <i class="fas fa-home me-1"></i>Dashboard
+                            <i class="fa-solid fa-address-card"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
@@ -154,61 +56,52 @@ $routines = [
             </div>
         </div>
     </nav>
-
+    <!-- container -->
     <div class="container mt-5">
-        <h1 class="text-center mb-5">Built-in Routines</h1>
+        <h1 class="text-center fw-bold mb-5">Unlock Your Potential with Our Expert-Designed Routines</h1>
+        <h4 class="text-center mb-5 small-title">Take your training to the next level with expertly crafted fitness
+            plans. Whether you’re tackling the Bro Split or powering through Push-Pull-Legs, these routines are designed
+            to help you excel. Choose your path and start building your best self today!</h4>
         <div class="row">
-            <?php foreach ($routines as $routine): ?>
-                <div class="col-lg-6 mb-4">
-                    <div class="card dashboard-card builtin-routines h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h2 class="card-title">
-                                <i class="fas fa-dumbbell icon-large"></i><?php echo htmlspecialchars($routine['title']); ?>
-                            </h2>
-                            <p class="card-text flex-grow-1"><?php echo htmlspecialchars($routine['description']); ?></p>
-                            <div class="mt-auto">
-                                <?php
-                                $dayCount = 0;
-                                foreach ($routine['schedule'] as $day => $exercises):
-                                    if ($dayCount < 3):  // Show only first 3 days
-                                        $dayCount++;
-                                        ?>
-                                        <h5 class="mt-3"><?php echo htmlspecialchars($day); ?></h5>
-                                        <ul class="list-unstyled">
-                                            <?php foreach (array_slice($exercises, 0, 3) as $exercise): // Show only first 3 exercises ?>
-                                                <li><?php echo htmlspecialchars($exercise['name']); ?> -
-                                                    <?php echo htmlspecialchars($exercise['sets']); ?> sets</li>
-                                            <?php endforeach; ?>
-                                            <?php if (count($exercises) > 3): ?>
-                                                <li>...</li>
-                                            <?php endif; ?>
-                                        </ul>
-                                        <?php
-                                    endif;
-                                endforeach;
-                                if ($dayCount < count($routine['schedule'])):
-                                    ?>
-                                    <p>...</p>
-                                <?php endif; ?>
-                            </div>
-                            <a href="view_routine.php?type=builtin&id=<?php echo urlencode($routine['id']); ?>"
-                                class="btn btn-lg btn-outline-light mt-3">
-                                View Full Routine <i class="fas fa-chevron-right ms-2"></i>
-                            </a>
-                        </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card dashboard-card builtin-routines h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title">
+                            <i class="fa-solid fa-server"></i> Bro Split ?
+                        </h2>
+                        <p class="card-text flex-grow-1">A classic bodybuilding split that targets different muscle
+                            groups on separate days, allowing for focused training and recovery.</p>
+                        <a href="view_routine.php?routine_nbr=<?php echo 1; ?>"
+                            class="btn btn-lg btn-outline-light mt-3">
+                            View Full Routine <i class="fas fa-chevron-right ms-2"></i>
+                        </a>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card dashboard-card builtin-routines h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title">
+                            <i class="fa-solid fa-server"></i> PPL (Push, Pull, Legs) ?
+                        </h2>
+                        <p class="card-text flex-grow-1">A balanced routine that groups muscles with similar functions,
+                            allowing for frequent training of each muscle group while providing adequate recovery time.
+                        </p>
+                        <a href="view_routine.php?routine_nbr=<?php echo 2; ?>"
+                            class="btn btn-lg btn-outline-light mt-3">
+                            View Full Routine <i class="fas fa-chevron-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <footer class="bg-dark text-light py-4 mt-5">
+    <!-- footer -->
+    <footer class="bg-dark text-light py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2024 GymPro. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
+                <div class="col-md-12 text-center">
+                    <p class="mb-1">&copy; 2024 GymPro. All rights reserved.</p>
                     <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>

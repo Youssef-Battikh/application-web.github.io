@@ -1,10 +1,29 @@
 <?php
-// login session check
-session_start();
+require_once 'php/config.php';
+
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
   header("Location: index.php");
   exit();
 }
+
+// Get the user's name from the database
+$id = $_SESSION['user_id'];
+$sql = "SELECT name FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $name = $row['name'];
+} else {
+  $name = "User"; // Default name if not found
+}
+
+$stmt->close();
+// Don't close the connection here as it might be needed later in the script
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +77,10 @@ if (!isset($_SESSION['user_id'])) {
   <!-- dashbord containers -->
   <div class="container-fluid mt-5 dashboard-container">
     <h1 class="text-center fw-bold mb-5">Welcome to Your Fitness Journey</h1>
+    <h4 class="text-center mb-5 small-title">Hey <?php echo htmlspecialchars($name); ?>, let's crush those fitness
+      goals! Dive into your
+      personalized
+      routines or explore our pre-built options below to take your journey to the next level</h4>
     <div class="row justify-content-center">
       <div class="col-lg-4 mb-4">
         <div class="card dashboard-card custom-routines">
@@ -107,8 +130,12 @@ if (!isset($_SESSION['user_id'])) {
   <footer class="bg-dark text-light py-4">
     <div class="container">
       <div class="row">
-        <div class="col-12 text-center">
-          <p class="mb-0">&copy; 2024 GymPro. All rights reserved.</p>
+        <div class="col-md-12 text-center">
+          <p class="mb-1">&copy; 2024 GymPro. All rights reserved.</p>
+          <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>

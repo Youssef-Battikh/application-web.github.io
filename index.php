@@ -141,8 +141,12 @@ if (isset($_SESSION['user_id'])) {
       </div>
       <hr class="my-4" />
       <div class="row">
-        <div class="col-12 text-center">
-          <p class="mb-0">&copy; 2024 GymPro. All rights reserved.</p>
+        <div class="col-md-12 text-center">
+          <p class="mb-1">&copy; 2024 GymPro. All rights reserved.</p>
+          <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>

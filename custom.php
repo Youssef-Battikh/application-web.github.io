@@ -77,44 +77,56 @@ $stmt->close();
     </nav>
 
     <div class="container mt-5">
-        <h1 class="text-center mb-5">Your Custom Routines</h1>
+        <h1 class="text-center fw-bold mb-5">Your Custom Fitness Routines</h1>
+        <h4 class="text-center mb-5 small-title">Designed by you, for you. Unlock your potential with the routines
+            you’ve created. Select a plan, stay committed, and push yourself to new heights with every rep!</h4>
         <div class="row">
-            <?php if (empty($routines)): ?>
-                <div class="col-12">
-                    <div class="alert alert-info" role="alert">
-                        You haven't created any custom routines yet. <a href="create_routine.php" class="alert-link">Start
-                            your first routine</a>!
+            <div class="col-lg-6 mb-4">
+                <div class="card dashboard-card create-routine h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title">
+                            <i class="fas fa-plus-circle"></i> Create New Routine
+                        </h2>
+                        <p class="card-text flex-grow-1">Design a new workout routine that fits your schedule and
+                            targets your
+                            specific fitness objectives. Customize every aspect of your training plan.</p>
+                        <a href="create_routine.php" class="btn btn-lg btn-outline-light mt-auto">
+                            Create New Routine <i class="fas fa-plus ms-2"></i>
+                        </a>
                     </div>
                 </div>
-            <?php else: ?>
-                <?php foreach ($routines as $routine): ?>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card dashboard-card custom-routines h-100">
-                            <div class="card-body d-flex flex-column">
-                                <h2 class="card-title">
+            </div>
+            <?php foreach ($routines as $routine): ?>
+                <div class="col-lg-6 mb-4">
+                    <div class="card dashboard-card custom-routines h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title">
                                 <i class="fa-solid fa-link"></i> <?php echo htmlspecialchars($routine['name']); ?>
-                                </h2>
-                                <p class="card-text flex-grow-1"><?php echo htmlspecialchars($routine['description']); ?></p>
-                                <div class="mt-auto">
-                                    <!-- Week exercises here -->
-                                </div>
-                                <a href="view_routine.php?nbr=<?php echo $routine['nbr']; ?>"
-                                    class="btn btn-lg btn-outline-light mt-3">
-                                    View Full Routine <i class="fas fa-chevron-right ms-2"></i>
-                                </a>
+                            </h2>
+                            <p class="card-text flex-grow-1"><?php echo htmlspecialchars($routine['description']); ?></p>
+                            <div class="mt-auto">
+                                <!-- Week exercises here -->
                             </div>
+                            <a href="view_routine.php?routine_nbr=<?php echo $routine['nbr']; ?>"
+                                class="btn btn-lg btn-outline-light mt-3">
+                                View Full Routine <i class="fas fa-chevron-right ms-2"></i>
+                            </a>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
-
+    <!-- footer -->
     <footer class="bg-dark text-light py-4">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
-                    <p class="mb-0">&copy; 2024 GymPro. All rights reserved.</p>
+                <div class="col-md-12 text-center">
+                    <p class="mb-1">&copy; 2024 GymPro. All rights reserved.</p>
+                    <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
