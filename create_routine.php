@@ -1,14 +1,8 @@
 <?php
-session_start();
+require_once 'php/config.php';
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
-}
-
-$conn = new mysqli("localhost", "root", "", "fitness_planner", 3306);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
 }
 
 $muscle_groups = ["trapz", "shoulders", "chest", "abs", "back", "biceps", "triceps", "forearms", "quadraceps", "calves", "hamstring"];
