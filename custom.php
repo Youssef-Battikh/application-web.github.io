@@ -29,6 +29,23 @@ $stmt->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- delete button style (bugs out externally because of bootstrap) -->
+    <style>
+        .delete-routine {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .delete-routine:hover {
+            color: #dc3545;
+        }
+    </style>
 </head>
 
 <body>
@@ -89,10 +106,14 @@ $stmt->close();
                     </div>
                 </div>
             </div>
-            <?php foreach ($routines as $routine): ?> <!-- custom routines display -->
+            <!-- custom routines display containers -->
+            <?php foreach ($routines as $routine): ?>
                 <div class="col-lg-6 mb-4">
                     <div class="card dashboard-card custom-routines h-100">
                         <div class="card-body d-flex flex-column">
+                            <button class="delete-routine" onclick="deleteRoutine(<?php echo $routine['nbr']; ?>)">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                             <h2 class="card-title">
                                 <i class="fa-solid fa-link"></i> <?php echo htmlspecialchars($routine['name']); ?>
                             </h2>
@@ -125,6 +146,32 @@ $stmt->close();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/element.js"></script>
     <script src="js/script.js"></script>
+    <script> // custom routine deletion
+        function deleteRoutine(routineNbr) {
+            if (confirm('Are you sure you want to delete this routine?')) {
+                fetch('delete_routine.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'routine_nbr=' + routineNbr
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Routine deleted successfully');
+                            location.reload();
+                        } else {
+                            alert('Error deleting routine');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('Error deleting routine');
+                    });
+            }
+        }
+    </script>
 </body>
 
 </html>
