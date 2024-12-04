@@ -1,16 +1,17 @@
 <?php
+// login session check
 include 'php/config.php';
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
-// Check if routine_nbr is passed in the URL
+// routine_nbr url check
 if (!isset($_GET['routine_nbr'])) {
     echo "Routine not specified.";
     exit;
 }
-$routine_nbr = intval($_GET['routine_nbr']);
-// Fetch routine details
+$routine_nbr = intval($_GET['routine_nbr']); // converts routine_nbr into int
+// fetching routine table info for the nbr passed in the url
 $routine_query = $conn->prepare("SELECT name, description FROM routine WHERE nbr = ?");
 $routine_query->bind_param("i", $routine_nbr);
 $routine_query->execute();
@@ -21,12 +22,12 @@ if ($routine_result->num_rows == 0) {
     exit;
 }
 $routine = $routine_result->fetch_assoc();
-// Fetch exercises for the routine
+// fetching exercises sorted by day and id 
 $exercises_query = $conn->prepare("SELECT day, exercise_name, sets FROM routine_exercises WHERE routine_nbr = ? ORDER BY day ASC, id ASC");
 $exercises_query->bind_param("i", $routine_nbr);
 $exercises_query->execute();
 $exercises_result = $exercises_query->get_result();
-// Group exercises by day
+// grouping exercices by day
 $exercises_by_day = [];
 while ($exercise = $exercises_result->fetch_assoc()) {
     $exercises_by_day[$exercise['day']][] = $exercise;
@@ -85,7 +86,7 @@ while ($exercise = $exercises_result->fetch_assoc()) {
         </div>
     </nav>
     <div class="container mt-5 mb-5">
-        <!-- Routine Header -->
+        <!-- routine header (title,description) -->
         <div class="routine-header">
             <h1><?php echo htmlspecialchars($routine['name']); ?></h1>
             <p class="lead mb-0"><?php echo htmlspecialchars($routine['description']); ?></p>
@@ -93,10 +94,10 @@ while ($exercise = $exercises_result->fetch_assoc()) {
         <!-- Routine Exercises -->
         <?php foreach ($exercises_by_day as $day => $exercises): ?>
             <h2 class="day-header">Day <?php echo $day; ?></h2>
-            <?php
-            $is_rest_day = count($exercises) === 1 && strtolower($exercises[0]['exercise_name']) === 'rest';
-            if ($is_rest_day):
-                ?>
+            <?php // rest day check
+                $is_rest_day = count($exercises) === 1 && strtolower($exercises[0]['exercise_name']) === 'rest';
+                if ($is_rest_day):
+                    ?>
                 <div class="rest-day">
                     <i class="bi bi-moon-stars me-2"></i> Rest Day
                 </div>

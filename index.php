@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id'])) {
   <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<body id="preloader">
+<body >
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
@@ -47,28 +47,33 @@ if (isset($_SESSION['user_id'])) {
     </div>
   </nav>
   <!-- header -->
-  <header class="py-5">
-    <div class="container px-5">
-      <div class="row gx-5 justify-content-center">
-        <div class="col-lg-8 col-xl-7">
-          <div class="text-center">
-            <h1 class="display-4 fw-bold mb-4">
-              Transform Your Fitness Journey with GymPro
-            </h1>
-            <p class="lead mb-5">
-              Unlock your potential with personalized workout routines
-              tailored to your goals. Whether you're a beginner or a pro,
-              GymPro empowers you to achieve your fitness dreams.
-            </p>
-            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-              <a class="btn btn-primary btn-lg px-4 me-sm-3 butcol" href="signup.php">Get Started</a>
-              <a class="btn btn-outline-dark btn-lg px-4" href="login.php">Login</a>
+  <div class="video-container">
+    <video autoplay loop muted plays-inline>
+      <source src="GymPro.mp4" type="video/mp4">
+    </video>
+    <header class="py-5">
+      <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+          <div class="col-lg-8 col-xl-7">
+            <div class="text-center">
+              <h1 class="display-4 fw-bold mb-4">
+                Transform Your Fitness Journey with GymPro
+              </h1>
+              <p class="lead mb-5">
+                Unlock your potential with personalized workout routines
+                tailored to your goals. Whether you're a beginner or a pro,
+                GymPro empowers you to achieve your fitness dreams.
+              </p>
+              <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a class="btn btn-outline-dark btn-lg px-4 lpb" href="signup.php">Get Started</a>
+                <a class="btn btn-outline-dark btn-lg px-4 lpb" href="login.php">Login</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
+  </div>
   <!-- section -->
   <section class="py-5">
     <div class="container px-5">
