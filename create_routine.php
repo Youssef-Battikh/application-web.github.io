@@ -327,7 +327,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             attachEventListeners(workoutDays.querySelector('.workout-day'));
 
-            // Add this new event listener for Day 1's "Add Muscle Group" button
             workoutDays.querySelector('.workout-day .add-muscle-group-btn').addEventListener('click', function () {
                 addMuscleGroup(this.closest('.workout-day'));
             });
