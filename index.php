@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id'])) {
   <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<body >
+<body>
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
@@ -46,10 +46,10 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </div>
   </nav>
-  <!-- header -->
+  <!-- background video and header -->
   <div class="video-container">
     <video autoplay loop muted plays-inline>
-      <source src="GymPro.mp4" type="video/mp4">
+      <source src="assets/GymPro.mp4" type="video/mp4">
     </video>
     <header class="py-5">
       <div class="container px-5">
@@ -65,8 +65,8 @@ if (isset($_SESSION['user_id'])) {
                 GymPro empowers you to achieve your fitness dreams.
               </p>
               <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                <a class="btn btn-outline-dark btn-lg px-4 lpb" href="signup.php">Get Started</a>
-                <a class="btn btn-outline-dark btn-lg px-4 lpb" href="login.php">Login</a>
+                <a class="btn btn-outline-dark btn-lg px-4 lpb lpb2" href="signup.php">Get Started</a>
+                <a class="btn btn-outline-dark btn-lg px-4 lpb lpb1" href="login.php">Login</a>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </header>
   </div>
-  <!-- section -->
+  <!--lower section -->
   <section class="py-5">
     <div class="container px-5">
       <div class="row gx-5 justify-content-center">

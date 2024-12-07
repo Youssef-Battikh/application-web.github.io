@@ -1,3 +1,18 @@
+.account-link {
+  display: inline-block;
+  font-size: 16px;
+  color: #333333;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.account-link:hover {
+  color: #8b0000; 
+  text-shadow: 0 0 8px #5e2424cc;
+}
+
 video {
   position: absolute;
   top: 50%;
@@ -9,6 +24,34 @@ video {
   height: auto;
   z-index: -1;
   object-fit: cover;
+}
+
+.btn4 {
+  background-color: #5e2424;
+  border: 1px solid #000000;
+}
+
+.btn4:hover {
+  background-color: #8b0000;
+  border: 1px solid #5e2424;
+}
+
+.btn5 {
+  background-color: #333333;
+  border: 1px solid #222222;
+}
+.btn5:hover {
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+
+.btn6 {
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+.btn6:hover {
+  background-color: #333333;
+  border: 1px solid #222222;
 }
 
 .video-container {
@@ -27,8 +70,23 @@ video {
   color: #fff5e1;
 }
 
-.lpb:hover {
-  background-color: #8b0000;
+.lpb1:hover {
+  background-color: #556b2f;
+  border: 1px solid #000000;
+}
+
+.lpb3 {
+  background-color: #556b2f;
+  border: 1px solid #002200;
+}
+
+.lpb3:hover {
+  background-color: #245e24;
+  border: 1px solid #003300;
+}
+
+.lpb2:hover {
+  background-color: #5e2424;
   border: 1px solid #000000;
 }
 
@@ -321,7 +379,6 @@ footer hr {
   background: linear-gradient(135deg, #8b0000, #b68d8d);
 }
 
-/* Responsive adjustments */
 @media (max-width: 992px) {
   .dashboard-card {
     height: auto;
@@ -329,7 +386,6 @@ footer hr {
   }
 }
 
-/* Add some animation to the cards */
 @keyframes cardPop {
   0% {
     transform: scale(1);
@@ -373,7 +429,7 @@ footer hr {
 }
 
 .social-btn.google {
-  background-color: #762f2f; /* Google red */
+  background-color: #762f2f;
 }
 
 .social-btn.google:hover {
@@ -383,7 +439,7 @@ footer hr {
 }
 
 .social-btn.facebook {
-  background-color: #2f4f76; /* Facebook blue */
+  background-color: #2f4f76;
 }
 
 .social-btn.facebook:hover {
@@ -424,4 +480,61 @@ footer hr {
 }
 .small-title.mb-5 {
   color: #444444;
+}
+.workout-day {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.day-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.rest-day-checkbox {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+.muscle-select {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.remove-day-btn {
+  display: none;
+}
+
+.exercise-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.exercise-select {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.remove-exercise-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.add-muscle-group-btn {
+  margin-top: 10px;
 }

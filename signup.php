@@ -89,6 +89,7 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
         <button type="button" class="btn social-btn facebook">
           <i class="fa-brands fa-facebook"></i> Sign-up with Facebook
         </button>
+        <p><a class="account-link" href="login.php">Already have an account ?</a></p>
       </div>
     </form>
   </div>

@@ -72,65 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="css/styles.css" rel="stylesheet">
-    <style>
-        .workout-day {
-            background-color: #f5f5f5;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .day-label {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .rest-day-checkbox {
-            transform: scale(1.5);
-            margin-right: 10px;
-        }
-
-        .muscle-select {
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .day-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .remove-day-btn {
-            display: none;
-        }
-
-        .exercise-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .exercise-select {
-            flex-grow: 1;
-            margin-right: 10px;
-        }
-
-        .remove-exercise-btn {
-            background: none;
-            border: none;
-            color: #dc3545;
-            cursor: pointer;
-        }
-
-        .add-muscle-group-btn {
-            margin-top: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -204,12 +145,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="exercises"></div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary add-muscle-group-btn mt-3">Add Muscle Group</button>
+                    <button type="button" class="btn btn-secondary add-muscle-group-btn mt-3 btn5">Add Muscle
+                        Group</button>
                 </div>
             </div>
             <div class="form-actions">
-                <button type="button" id="addDay" class="btn btn-secondary">Add Another Day</button>
-                <button type="submit" class="btn btn-primary">Create Routine</button>
+                <button type="button" id="addDay" class="btn btn-secondary lpb3">Add Another Day</button>
+                <button type="submit" class="btn btn-primary btn4">Create Routine</button>
             </div>
         </form>
     </div>
@@ -288,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ${exerciseOptions[muscleGroup].map(exercise => `<option value="${exercise}">${exercise}</option>`).join('')}
             </select>
             <input type="number" class="form-control sets-input inpcol" name="exercises[${dayCount - 1}][sets][]" min="1" max="6" placeholder="Sets">
-            <button type="button" class="remove-exercise-btn">&times;</button>
+            <button type="button" class="remove-exercise-btn"><i class="fa-solid fa-delete-left"></i></button>
         `;
                 container.appendChild(exerciseRow);
 
@@ -308,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (!addExerciseBtn) {
                     addExerciseBtn = document.createElement('button');
                     addExerciseBtn.type = 'button';
-                    addExerciseBtn.className = 'btn btn-secondary add-exercise-btn mt-2';
+                    addExerciseBtn.className = 'btn btn-secondary add-exercise-btn mt-2 btn6';
                     addExerciseBtn.textContent = 'Add Exercise';
                     addExerciseBtn.addEventListener('click', () => addExerciseRow(container, container.closest('.muscle-group').querySelector('.muscle-select').value));
                     container.appendChild(addExerciseBtn);
@@ -347,7 +289,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 newDay.innerHTML = `
             <div class="day-header">
                 <div class="day-label">Day ${dayCount}</div>
-                <button type="button" class="btn btn-danger btn-sm remove-day-btn">Remove Day</button>
+                <button type="button" class="btn btn-danger btn-sm remove-day-btn btn4">Remove Day</button>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input rest-day-checkbox nocb" type="checkbox" name="exercises[${dayCount - 1}][rest_day]" id="restDay${dayCount - 1}">
@@ -364,7 +306,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="exercises"></div>
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary add-muscle-group-btn mt-3">Add Muscle Group</button>
+            <button type="button" class="btn btn-secondary add-muscle-group-btn mt-3 btn5">Add Muscle Group</button>
         `;
                 workoutDays.appendChild(newDay);
                 attachEventListeners(newDay);
