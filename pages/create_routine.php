@@ -57,7 +57,7 @@ $muscle_groups = ["trapz", "shoulders", "chest", "abs", "back", "biceps", "trice
         </div>
     </nav>
     <!-- routine creation form -->
-    <div class="container mt-5">
+    <div class="container mt-5 fbs py-5 mb-3">
         <h1 class="text-center fw-bold mb-5">Create Your Custom Routine</h1>
         <form id="routineForm" method="POST" action="../php/create.php">
             <div class="mb-4">
