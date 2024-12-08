@@ -16,14 +16,14 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
   <title>Login - GymPro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-  <link href="css/styles.css" rel="stylesheet" />
+  <link href="../css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
-      <a class="navbar-brand" href="#">GymPro</a>
+      <a class="navbar-brand" href="index.php">GymPro</a>
       <div id="google_translate_element"></div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <?php endif; ?>
-    <form id="loginForm" class="needs-validation" action="php/connexion.php" method="post" novalidate>
+    <form id="loginForm" class="needs-validation" action="../php/connexion.php" method="post" novalidate>
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control inpcol" id="email" name="email" required />
@@ -103,9 +103,9 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="js/element.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/login.js"></script>
+  <script type="text/javascript" src="../js/element.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/login.js"></script>
 
 </body>
 

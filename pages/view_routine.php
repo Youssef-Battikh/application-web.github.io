@@ -1,6 +1,6 @@
 <?php
 // login session check
-include 'php/config.php';
+include '../php/config.php';
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
@@ -10,7 +10,7 @@ if (!isset($_GET['routine_nbr'])) {
     echo "Routine not specified.";
     exit;
 }
-$routine_nbr = intval($_GET['routine_nbr']); // converts routine_nbr into int
+$routine_nbr = intval($_GET['routine_nbr']);
 // fetching routine table info for the nbr passed in the url
 $routine_query = $conn->prepare("SELECT name, description FROM routine WHERE nbr = ?");
 $routine_query->bind_param("i", $routine_nbr);
@@ -43,7 +43,7 @@ while ($exercise = $exercises_result->fetch_assoc()) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
     <style>
     </style>
 </head>
@@ -52,7 +52,7 @@ while ($exercise = $exercises_result->fetch_assoc()) {
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
         <div class="container">
-            <a class="navbar-brand" href="#">GymPro
+            <a class="navbar-brand" href="routines.php">GymPro
             </a>
             <div id="google_translate_element"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -91,7 +91,7 @@ while ($exercise = $exercises_result->fetch_assoc()) {
             <h1><?php echo htmlspecialchars($routine['name']); ?></h1>
             <p class="lead mb-0"><?php echo htmlspecialchars($routine['description']); ?></p>
         </div>
-        <!-- Routine Exercises -->
+        <!-- routine exercices -->
         <?php foreach ($exercises_by_day as $day => $exercises): ?>
             <h2 class="day-header">Day <?php echo $day; ?></h2>
             <?php // rest day check
@@ -133,8 +133,8 @@ while ($exercise = $exercises_result->fetch_assoc()) {
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/element.js"></script>
-    <script src="js/script.js"></script>
+    <script type="text/javascript" src="../js/element.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

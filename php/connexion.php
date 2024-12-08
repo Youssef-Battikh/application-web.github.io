@@ -1,9 +1,9 @@
 <?php
-// login session check
 include 'config.php';
 if (!empty($_SESSION["id"])) {
-    header("location: ../routines.html");
+    header("location: ../pages/routines.php");
 }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     $password = $_POST["password"];
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user["password"])) {
                 $_SESSION["user_id"] = $user["id"];
                 $_SESSION["username"] = $user["name"];
-                header("Location: ../routines.php");
+                header("Location: ../pages/routines.php");
                 exit();
             } else {
                 $error = urlencode('Invalid password.');
@@ -32,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
     }
 }
-
 $conn->close();
-header('Location: ../login.php?error=' . $error);
+header('Location: ../pages/login.php?error=' . $error);
 ?>

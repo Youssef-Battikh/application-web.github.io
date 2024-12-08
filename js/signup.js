@@ -1,4 +1,3 @@
-// Form Check
 document
   .getElementById("signupForm")
   .addEventListener("submit", function (event) {

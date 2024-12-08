@@ -1,6 +1,6 @@
 <?php
 // login session check
-require_once 'php/config.php';
+require_once '../php/config.php';
 if (!isset($_SESSION['user_id'])) {
   header("Location: index.php");
   exit();
@@ -16,8 +16,6 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $name = $row['name'];
-} else {
-  $name = "User"; // default name
 }
 $stmt->close();
 ?>
@@ -30,14 +28,14 @@ $stmt->close();
   <title>Dashboard - GymPro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-  <link href="css/styles.css" rel="stylesheet" />
+  <link href="../css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
-      <a class="navbar-brand" href="#">GymPro
+      <a class="navbar-brand" href="routines.php">GymPro
       </a>
       <div id="google_translate_element"></div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -73,7 +71,7 @@ $stmt->close();
   <!-- dashbord containers -->
   <div class="container-fluid mt-5 dashboard-container">
     <h1 class="text-center fw-bold mb-5">Welcome to Your Fitness Journey</h1>
-    <!-- user name display -->
+    <!-- username display -->
     <h4 class="text-center mb-5 small-title">Hey <?php echo htmlspecialchars($name); ?>, let's crush those fitness
       goals! Dive into your personalized routines or explore our pre-built options below to take your journey to the
       next level
@@ -139,8 +137,8 @@ $stmt->close();
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="js/element.js"></script>
-  <script src="js/script.js"></script>
+  <script type="text/javascript" src="../js/element.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 
 </html>

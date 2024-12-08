@@ -2,8 +2,8 @@
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
-      pageLanguage: "en", // Default language of the page
-      includedLanguages: "ar,en,fr,es", // Add languages as needed
+      pageLanguage: "en",
+      includedLanguages: "ar,en,fr,es",
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
     },
     "google_translate_element"

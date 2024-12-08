@@ -15,14 +15,14 @@ if (isset($_SESSION['user_id'])) {
   <title>GymPro - Your Personal Fitness Journey Starts Here</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="css/styles.css" rel="stylesheet" />
+  <link href="../css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
     <div class="container">
-      <a class="navbar-brand" href="#">GymPro</a>
+      <a class="navbar-brand" href="index.php">GymPro</a>
       <div id="google_translate_element"></div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@ if (isset($_SESSION['user_id'])) {
   <!-- background video and header -->
   <div class="video-container">
     <video autoplay loop muted plays-inline>
-      <source src="assets/GymPro.mp4" type="video/mp4">
+      <source src="../assets/GymPro.mp4" type="video/mp4">
     </video>
     <header class="py-5">
       <div class="container px-5">
@@ -158,8 +158,8 @@ if (isset($_SESSION['user_id'])) {
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="js/element.js"></script>
-  <script src="js/script.js"></script>
+  <script type="text/javascript" src="../js/element.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 
 </html>
