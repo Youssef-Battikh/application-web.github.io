@@ -43,7 +43,7 @@ $stmt->close();
         }
 
         .delete-routine:hover {
-            color: #dc3545;
+            color: #ff0000;
         }
     </style>
 </head>
