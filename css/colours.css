@@ -1,0 +1,62 @@
+.light-text{
+    color : #FAE5D3;
+}
+.lighter-text{
+    color : #EDE8DA;
+}
+.dark-text{
+    color : #121212;
+}
+body{
+    background-color: #FAE5D3;
+}
+.dark-background{
+    background-color: #121212;
+}
+
+/* Navbar Colours */
+.navbar-custom{
+    background-color : #121212;
+    color : #D8A51D;
+}
+.navbar-custom:hover{
+    color : #D8A51D;
+}
+.obsidian-nav{
+    color : #8451E0;
+}
+.obsidian{
+    color : #6D3AC6;
+}
+.nav-link-custom{
+    color : #FAE5D3;
+}
+.nav-link-custom:hover{
+    color : #8451E0;
+}
+.active-custom{
+    color : #6D3AC6;
+}
+
+/* Landing Page Button Colours */
+.lp-button {
+    border: 1px solid #e3e3e3;
+    color: #fff5e1;
+  }
+.lp-login:hover {
+    background-color: #D8A51D;
+    border: 1px solid #000000;
+    color : #121212;
+  }
+.lp-signup:hover {
+    background-color: #8451E0;
+    border: 1px solid #000000;
+    color : #121212;
+  }
+.lp-newsletter:hover {
+    box-shadow: 0 0 5px rgba(245, 245, 245, 0.5);
+  }
+.lp-newsletter:focus {
+    border: 1px solid #f5f5f5;
+    box-shadow: 0 0 5px rgba(245, 245, 245, 0.5);
+  }
