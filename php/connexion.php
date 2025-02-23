@@ -8,7 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     $password = $_POST["password"];
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if ($email == "" || $password == "") {
+        $error = urlencode('Please fill up the form.');
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = urlencode('Invalid email format.');
     } else {
         $stmt = $conn->prepare("SELECT id, name, password FROM users WHERE email = ?");

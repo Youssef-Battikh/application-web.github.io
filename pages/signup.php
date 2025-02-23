@@ -61,18 +61,18 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
 
     <form id="form" class="needs-validation" action="../php/inscription.php" method="post" novalidate>
       <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
+        <label for="username" class="form-label dark-text">Username</label>
         <input type="text" class="form-control input-custom" id="username" name="username" required />
         <div></div>
         <div class="invalid-feedback">Please choose a username.</div>
       </div>
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
+        <label for="email" class="form-label dark-text">Email address</label>
         <input type="email" class="form-control input-custom" id="email" name="email" required />
         <div class="invalid-feedback">Please provide a valid email.</div>
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label dark-text">Password</label>
         <input type="password" class="form-control input-custom" id="password" name="password" required minlength="8" />
         <div class="invalid-feedback">
           Password must be at least 8 characters long.
@@ -80,7 +80,7 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
       </div>
       <div class="mb-3 form-check actions">
         <input type="checkbox" class="form-check-input checkbox-custom nocb" id="showPassword">
-        <label class="form-check-label" for="showPassword">Show password</label>
+        <label class="form-check-label dark-text" for="showPassword">Show password</label>
         <button type="submit" class="btn button-custom" name="submit"><i class="fa-solid fa-user-plus btni"></i>Sign
           Up</button>
       </div>
@@ -112,7 +112,6 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="../js/element.js"></script>
   <script src="../js/script.js"></script>
   <script src="../js/signup.js"></script>
 </body>
