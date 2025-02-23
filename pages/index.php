@@ -17,11 +17,12 @@ if (isset($_SESSION['user_id'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../css/styles.css" rel="stylesheet" />
   <link href="../css/colours.css" rel="stylesheet" />
+  <link href="../css/fun.css" rel="stylesheet" />
 </head>
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-custom">
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-navbar">
     <div class="container">
       <a class="navbar-brand navbar-custom" href="index.php"><span class="obsidian-nav">Obsidian</span>Muscle</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -144,7 +145,7 @@ if (isset($_SESSION['user_id'])) {
       <hr class="my-4" />
       <div class="row">
         <div class="col-md-12 text-center">
-          <p class="mb-1 light-text">&copy; 2024 GymPro. All rights reserved.</p>
+          <p class="mb-1 light-text">&copy; 2025 ObsidianMuscle. All rights reserved.</p>
           <a href="#" class="light-text me-2"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="light-text me-2"><i class="fab fa-twitter"></i></a>
           <a href="#" class="light-text me-2"><i class="fab fa-instagram"></i></a>

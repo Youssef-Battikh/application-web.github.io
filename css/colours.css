@@ -1,62 +1,124 @@
-.light-text{
-    color : #FAE5D3;
+.light-text {
+  color: #fae5d3;
 }
-.lighter-text{
-    color : #EDE8DA;
+.lighter-text {
+  color: #ede8da;
 }
-.dark-text{
-    color : #121212;
+.dark-text {
+  color: #121212;
 }
-body{
-    background-color: #FAE5D3;
+body {
+  background-color: #fae5d3;
 }
-.dark-background{
-    background-color: #121212;
+.light-background {
+  background-color: #ede8da;
+}
+.dark-background {
+  background-color: #121212;
 }
 
 /* Navbar Colours */
-.navbar-custom{
-    background-color : #121212;
-    color : #D8A51D;
+.navbar-custom {
+  background-color: #121212;
+  color: #d8a51d;
 }
-.navbar-custom:hover{
-    color : #D8A51D;
+.navbar-custom:hover {
+  color: #d8a51d;
 }
-.obsidian-nav{
-    color : #8451E0;
+.obsidian-nav {
+  color: #8451e0;
 }
-.obsidian{
-    color : #6D3AC6;
+.obsidian {
+  color: #6d3ac6;
 }
-.nav-link-custom{
-    color : #FAE5D3;
+.nav-link-custom {
+  color: #fae5d3;
 }
-.nav-link-custom:hover{
-    color : #8451E0;
+.nav-link-custom:hover {
+  color: #8451e0;
 }
-.active-custom{
-    color : #6D3AC6;
+.active-custom {
+  color: #6d3ac6;
 }
 
 /* Landing Page Button Colours */
 .lp-button {
-    border: 1px solid #e3e3e3;
-    color: #fff5e1;
-  }
+  border: 1px solid #e3e3e3;
+  color: #fff5e1;
+}
 .lp-login:hover {
-    background-color: #D8A51D;
-    border: 1px solid #000000;
-    color : #121212;
-  }
+  background-color: #d8a51d;
+  border: 1px solid #000000;
+  color: #121212;
+}
 .lp-signup:hover {
-    background-color: #8451E0;
-    border: 1px solid #000000;
-    color : #121212;
-  }
+  background-color: #8451e0;
+  border: 1px solid #000000;
+  color: #121212;
+}
 .lp-newsletter:hover {
-    box-shadow: 0 0 5px rgba(245, 245, 245, 0.5);
-  }
+  box-shadow: 0 0 5px rgba(245, 245, 245, 0.5);
+}
 .lp-newsletter:focus {
-    border: 1px solid #f5f5f5;
-    box-shadow: 0 0 5px rgba(245, 245, 245, 0.5);
-  }
+  border: 1px solid #f5f5f5;
+  box-shadow: 0 0 5px rgba(245, 245, 245, 0.5);
+}
+
+/* Form Colours */
+.input-custom {
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+}
+.input-custom:hover {
+  box-shadow: 0 0 5px #6d3ac680;
+}
+.input-custom:focus {
+  border: 1px solid #6d3ac6;
+  box-shadow: 0 0 5px #6d3ac680;
+}
+.checkbox-custom {
+  border-color: #cccccc;
+}
+.checkbox-custom:checked {
+  background-color: #6d3ac6;
+  border-color: #6d3ac6;
+}
+.checkbox-custom:hover {
+  box-shadow: 0 0 5px #6d3ac680;
+}
+.checkbox-custom:focus {
+  border-color: #6d3ac6;
+  box-shadow: 0 0 0 0.25rem #8451e080;
+}
+.button-custom {
+  background-color: #121212;
+  border: 1px solid #121212;
+  color: #fae5d3;
+}
+.button-custom:hover {
+  background-color: #8451e0;
+  border: 1px solid #8451e0;
+  color: #121212;
+}
+.account-link {
+  display: inline-block;
+  font-size: 16px;
+  color: #121212;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.account-link:hover {
+  color: #d8a51d;
+  text-shadow: 0 0 8px #d8a51dcc;
+}
+.social-login p {
+  color: #121212;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.incorrect input{
+  border-color: #C6363A;
+  box-shadow: 0 0 0 0.15rem #C6363A60;
+}

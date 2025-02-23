@@ -1,17 +1,4 @@
-.account-link {
-  display: inline-block;
-  font-size: 16px;
-  color: #333333;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
 
-.account-link:hover {
-  color: #8b0000;
-  text-shadow: 0 0 8px #5e2424cc;
-}
 
 video {
   position: absolute;
@@ -54,17 +41,6 @@ video {
   border: 1px solid #222222;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .lpb3 {
   background-color: #556b2f;
   border: 1px solid #002200;
@@ -93,12 +69,6 @@ body {
 }
 .nav-link {
   font-weight: 500;
-}
-.navbar.nbs {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -211,32 +181,9 @@ footer hr {
   opacity: 0.1;
 }
 
-.inpcol {
-  background-color: #f5f5f5;
-  border: 1px solid #cccccc;
-}
-
-.inpcol:hover {
-  box-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
-}
-
-.inpcol:focus {
-  border: 1px solid #8b0000;
-  box-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
-}
-
 .inpcol3 {
   background-color: #fff5e1;
   border: 1px solid #cccccc;
-}
-.butcol.btn {
-  background-color: #000000;
-  border: 1px solid #000000;
-  color: #f5f5f5;
-}
-.butcol.btn:hover {
-  background-color: #8b0000;
-  border: 1px solid #8b0000;
 }
 
 .butcol2.btn:hover {
@@ -249,27 +196,6 @@ footer hr {
 
 .card:hover {
   transform: translateY(-5px);
-}
-.contmod {
-  max-width: 800px;
-}
-
-.form-check-input {
-  border-color: #cccccc;
-}
-
-.form-check-input:checked {
-  background-color: #8b0000;
-  border-color: #8b0000;
-}
-
-.form-check-input:hover {
-  box-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
-}
-
-.form-check-input:focus {
-  border-color: #8b0000;
-  box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.25);
 }
 
 .form-check-label {
@@ -379,16 +305,7 @@ footer hr {
 .dashboard-card:hover {
   animation: cardPop 0.3s ease-in-out;
 }
-.social-login {
-  text-align: center;
-  margin-top: 20px;
-}
 
-.social-login p {
-  color: #333333;
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
 
 .social-btn {
   display: flex;

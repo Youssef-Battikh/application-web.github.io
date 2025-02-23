@@ -8,8 +8,20 @@ if (isset($_POST["submit"])) {
     $name = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $em = substr($email, strpos($email, '@'));
+    $ema = substr($em, strpos($em, '.'));
     if ($name == "" || $email == "" || $password == "") {
         $error = urlencode('Please fill up the form.');
+    } else if (strlen($name) < 3 || strlen($name) > 8) {
+        $error = urlencode('Username must be between 3 and 8 characters.');
+    } else if (strpos($email, '@') == false) {
+        $error = urlencode('Invalid email format.');
+    } else if (strpos($em, '.') == false) {
+        $error = urlencode('Invalid email format.');
+    } else if (strlen($ema) < 3) {
+        $error = urlencode('Invalid email format.');
+    } else if (strlen($password) < 8) {
+        $error = urlencode('Password must be at least 8 characters long.');
     } else {
         $duplicate = $conn->prepare("SELECT * FROM users WHERE name = ? OR email = ?");
         $duplicate->bind_param("ss", $name, $email);
