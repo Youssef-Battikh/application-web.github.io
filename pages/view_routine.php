@@ -52,7 +52,7 @@ while ($exercise = $exercises_result->fetch_assoc()) {
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
         <div class="container">
-            <a class="navbar-brand" href="routines.php">GymPro
+            <a class="navbar-brand" href="dashboard.php">GymPro
             </a>
             <div id="google_translate_element"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -62,7 +62,7 @@ while ($exercise = $exercises_result->fetch_assoc()) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="routines.php">
+                        <a class="nav-link" aria-current="page" href="dashboard.php">
                             <i class="fa-solid fa-address-card"></i> Dashboard
                         </a>
                     </li>

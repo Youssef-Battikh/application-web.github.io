@@ -2,7 +2,7 @@
 // login session check
 session_start();
 if (isset($_SESSION['user_id'])) {
-  header("Location: routines.php");
+  header("Location: dashboard.php");
   exit();
 }
 $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : null; // sign-up error display
@@ -59,7 +59,7 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
       </div>
     <?php endif; ?>
 
-    <form id="form" class="needs-validation" action="../php/inscription.php" method="post" novalidate>
+    <form id="form" class="needs-validation" action="../php/validation.php" method="post" novalidate>
       <div class="mb-3">
         <label for="username" class="form-label dark-text">Username</label>
         <input type="text" class="form-control input-custom" id="username" name="username" required />

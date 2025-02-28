@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 if (!empty($_SESSION["id"])) {
-    header("location: ../pages/routines.php");
+    header("location: ../pages/dashboard.php");
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user["password"])) {
                 $_SESSION["user_id"] = $user["id"];
                 $_SESSION["username"] = $user["name"];
-                header("Location: ../pages/routines.php");
+                header("Location: ../pages/dashboard.php");
                 exit();
             } else {
                 $error = urlencode('Invalid password.');

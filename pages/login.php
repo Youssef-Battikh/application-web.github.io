@@ -2,7 +2,7 @@
 // login session check
 session_start();
 if (isset($_SESSION['user_id'])) {
-  header("Location: routines.php");
+  header("Location: dashboard.php");
   exit();
 }
 $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : null; // login error display
@@ -55,7 +55,7 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <?php endif; ?>
-    <form id="loginForm" class="needs-validation" action="../php/connexion.php" method="post" novalidate>
+    <form id="loginForm" class="needs-validation" action="../php/auth.php" method="post" novalidate>
       <div class="mb-3">
         <label for="email" class="form-label dark-text">Email address</label>
         <input type="email" class="form-control input-custom" id="email" name="email" required />

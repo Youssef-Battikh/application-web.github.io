@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id'])) {
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
         <div class="container">
-            <a class="navbar-brand" href="routines.php">GymPro
+            <a class="navbar-brand" href="dashboard.php">GymPro
             </a>
             <div id="google_translate_element"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="routines.php">
+                        <a class="nav-link" href="dashboard.php">
                             <i class="fa-solid fa-address-card"></i> Dashboard
                         </a>
                     </li>

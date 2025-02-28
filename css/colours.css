@@ -118,7 +118,20 @@ body {
   font-size: 1rem;
   margin-bottom: 10px;
 }
-.incorrect input{
-  border-color: #C6363A;
-  box-shadow: 0 0 0 0.15rem #C6363A60;
+.incorrect input {
+  border-color: #c6363a;
+  box-shadow: 0 0 0 0.15rem #c6363a60;
 }
+
+/* .builtin-routines { 
+   background: linear-gradient(135deg, hsl(209, 59%, 30%), hsl(209, 59%, 70%));
+ } */
+/* .custom-routines {
+  background: linear-gradient(135deg, hsl(175, 50%, 30%), hsl(175, 50%, 70%));
+ } */
+.purple-card { 
+background: linear-gradient(135deg, hsl(261, 70%, 23%), hsl(261, 70%, 70%));
+ }
+.gold-card {
+  background: linear-gradient(135deg, hsl(44, 76%, 30%), hsl(44, 76%, 70%));
+ } 
