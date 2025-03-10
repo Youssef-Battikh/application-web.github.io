@@ -7,6 +7,12 @@
 .dark-text {
   color: #121212;
 }
+.yellow-text {
+  color: #edce78;
+}
+.gold-text {
+  color: #d8a51d;
+}
 body {
   background-color: #fae5d3;
 }
@@ -129,9 +135,9 @@ body {
 /* .custom-routines {
   background: linear-gradient(135deg, hsl(175, 50%, 30%), hsl(175, 50%, 70%));
  } */
-.purple-card { 
-background: linear-gradient(135deg, hsl(261, 70%, 23%), hsl(261, 70%, 70%));
- }
+.purple-card {
+  background: linear-gradient(135deg, hsl(261, 70%, 23%), hsl(261, 70%, 70%));
+}
 .gold-card {
-  background: linear-gradient(135deg, hsl(44, 76%, 30%), hsl(44, 76%, 70%));
- } 
+  background: linear-gradient(135deg, hsl(44, 76%, 30%), #edce78);
+}

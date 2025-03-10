@@ -25,7 +25,7 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-custom sticky-navbar">
     <div class="container">
-    <a class="navbar-brand navbar-custom" href="index.php"><span class="obsidian-nav">Obsidian</span>Muscle</a>
+      <a class="navbar-brand navbar-custom" href="index.php"><span class="obsidian-nav">Obsidian</span>Muscle</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,13 +33,14 @@ $error = isset($_GET['error']) ? htmlspecialchars(urldecode($_GET['error'])) : n
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-          <a class="nav-link nav-link-custom" href="index.php"><i class="fas fa-home me-1"></i>Home</a>
+            <a class="nav-link nav-link-custom" href="index.php"><i class="fas fa-home me-1"></i>Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-custom" href="signup.php"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom active-custom" aria-current="page" href="login.php"><i class="fa-solid fa-right-to-bracket"></i>
+            <a class="nav-link nav-link-custom active-custom" aria-current="page" href="login.php"><i
+                class="fa-solid fa-right-to-bracket"></i>
               Login</a>
           </li>
         </ul>
