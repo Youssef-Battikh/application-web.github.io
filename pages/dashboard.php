@@ -25,7 +25,7 @@ $stmt->close();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - Obsidian Muscle</title>
+  <title>Navigation - Obsidian Muscle</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <link href="../css/styles.css" rel="stylesheet" />
@@ -48,19 +48,25 @@ $stmt->close();
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link nav-link-custom active-custom" aria-current="page" href="dashboard.php">
-              <i class="fa-solid fa-address-card"></i> Dashboard
+              <i class="fa-solid fa-address-card"></i> Menu
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="builtin.php">
-              <i class="fas fa-list-alt me-1"></i>Built-in
+            <a class="nav-link nav-link-custom" href="#">
+              <i class="fas fa-users me-1"></i>Community
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-custom" href="custom.php">
-              <i class="fas fa-cog me-1"></i>Custom
+              <i class="fas fa-bookmark me-1"></i>Library
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="builtin.php">
+              <i class="fas fa-box-archive me-1"></i>Built-in
+            </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link nav-link-custom" href="logout.php">
               <i class="fas fa-sign-out-alt me-1"></i>Log Out
@@ -74,7 +80,7 @@ $stmt->close();
   <div class="container-fluid mt-5 dashboard-container">
     <h1 class="text-center fw-bold mb-5 dark-text">Welcome Back <?php echo htmlspecialchars($name); ?></h1>
     <!-- username display -->
-    <h4 class="text-center mb-5 small-title">Welcome to your dashboard! What are you choosing today?
+    <h4 class="text-center mb-5 small-title">Welcome to your Navigation Menu! What are you choosing today?
     </h4>
     <div class="row justify-content-center">
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">

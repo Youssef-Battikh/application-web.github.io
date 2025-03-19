@@ -13,6 +13,12 @@
 .gold-text {
   color: #d8a51d;
 }
+.red-text{
+  color: #D83A1D
+}
+.light-red-text{
+  color: #ED8678
+}
 body {
   background-color: #fae5d3;
 }

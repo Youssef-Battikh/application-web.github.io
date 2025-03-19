@@ -94,3 +94,16 @@
 .dashboard-card:hover {
   animation: cardPop 0.3s ease-in-out;
 }
+.exercise-card .card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.exercise-card .card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
