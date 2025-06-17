@@ -52,7 +52,7 @@ $stmt->close();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#">
+            <a class="nav-link nav-link-custom" href="community.php">
               <i class="fas fa-users me-1"></i>Community
             </a>
           </li>
@@ -90,7 +90,7 @@ $stmt->close();
               <i class="fa-solid fa-users icon-large"></i>Community Workouts
             </h2>
             <p class="card-text flex-grow-1">Browse and discover routines shared by fellow ObsidianMuscle users.</p>
-            <a href="custom.php" class="btn btn-lg btn-outline-light mt-auto">
+            <a href="community.php" class="btn btn-lg btn-outline-light mt-auto">
               Explore<i class="fas fa-list-ul ms-2"></i>
             </a>
           </div>

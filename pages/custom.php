@@ -23,12 +23,15 @@ $stmt->close();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom Routines - GymPro</title>
+    <title>Built-in - Obsidian Muscle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=fitness_center" />
     <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/colours.css" rel="stylesheet" />
+    <link href="../css/fun.css" rel="stylesheet" />
     <!-- delete button style (bugs out externally because of bootstrap) -->
     <style>
         .delete-routine {
@@ -50,9 +53,10 @@ $stmt->close();
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nbs">
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-navbar">
         <div class="container">
-            <a class="navbar-brand" href="dashboard.php">GymPro
+            <a class="navbar-brand navbar-custom" href="dashboard.php"><span
+                    class="obsidian-nav">Obsidian</span>Muscle</a>
             </a>
             <div id="google_translate_element"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -62,22 +66,28 @@ $stmt->close();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="dashboard.php">
-                            <i class="fa-solid fa-address-card"></i> Dashboard
+                        <a class="nav-link nav-link-custom" aria-current="page" href="dashboard.php">
+                            <i class="fa-solid fa-address-card"></i> Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="builtin.php">
-                            <i class="fas fa-list-alt me-1"></i>Built-in
+                        <a class="nav-link nav-link-custom" href="community.php">
+                            <i class="fas fa-users me-1"></i>Community
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="custom.php">
-                            <i class="fas fa-cog me-1"></i>Custom
+                        <a class="nav-link nav-link-custom active-custom" href="custom.php">
+                            <i class="fas fa-bookmark me-1"></i>Library
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">
+                        <a class="nav-link nav-link-custom" href="builtin.php">
+                            <i class="fas fa-box-archive me-1"></i>Built-in
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="logout.php">
                             <i class="fas fa-sign-out-alt me-1"></i>Log Out
                         </a>
                     </li>
@@ -87,11 +97,10 @@ $stmt->close();
     </nav>
     <!-- routine creation container -->
     <div class="container mt-5">
-        <h1 class="text-center fw-bold mb-5">Your Custom Fitness Routines</h1>
-        <h4 class="text-center mb-5 small-title">Designed by you, for you. Unlock your potential with the routines
-            you’ve created. Select a plan, stay committed, and push yourself to new heights with every rep!</h4>
+        <h1 class="text-center fw-bold mb-5">Your Library</h1>
+        <h4 class="text-center mb-5 small-title">Designed by you, for you. Whether you made it or liked it!</h4>
         <div class="row">
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="card dashboard-card create-routine h-100">
                     <div class="card-body d-flex flex-column">
                         <h2 class="card-title">
@@ -107,17 +116,61 @@ $stmt->close();
                 </div>
             </div>
             <!-- custom routines display containers -->
-            <?php foreach ($routines as $routine): ?>
-                <div class="col-lg-6 mb-4">
-                    <div class="card dashboard-card custom-routines h-100">
+            <?php foreach ($routines as $routine):
+                $sql = "SELECT max(day) FROM routine_exercises WHERE routine_nbr = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $routine['nbr']);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($row = $result->fetch_assoc()) {
+                    $maxDay = $row['max(day)'];
+                } else {
+                    $maxDay = 0;
+                }
+                $stmt->close();
+
+                $sql = "SELECT count(exercise_name) as exs FROM routine_exercises WHERE routine_nbr = ? AND exercise_name
+                NOT LIKE 'rest'";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $routine['nbr']);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($row = $result->fetch_assoc()) {
+                    $maxExs = $row['exs'];
+                } else {
+                    $maxExs = 0;
+                }
+                $stmt->close();
+                ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card dashboard-card purple-card">
                         <div class="card-body d-flex flex-column">
                             <button class="delete-routine" onclick="deleteRoutine(<?php echo $routine['nbr']; ?>)">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                             <h2 class="card-title">
-                                <i class="fa-solid fa-link"></i> <?php echo htmlspecialchars($routine['name']); ?>
+                                <i class="fa-solid fa-server"></i> <?php echo htmlspecialchars($routine['name']); ?>
                             </h2>
-                            <p class="card-text flex-grow-1"><?php echo htmlspecialchars($routine['description']); ?></p>
+                            <p class="card-text flex-grow-1">
+                                <?php echo htmlspecialchars($routine['description']); ?>
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column">
+                                    <span class="yellow-text">
+                                        <i class="fa-solid fa-calendar-days gold-text"></i>
+                                        <?php echo htmlspecialchars((string) $maxDay); ?> Days
+                                    </span>
+                                    <span class="yellow-text">
+                                        <i class="fa-solid fa-bullseye gold-text"></i>
+                                        <?php echo htmlspecialchars((string) $maxExs); ?> Exercises
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="light-red-text">
+                                        <i class="fa-solid fa-heart red-text"></i> 0 Likes
+                                    </span>
+                                </div>
+                            </div>
                             <a href="view_routine.php?routine_nbr=<?php echo $routine['nbr']; ?>"
                                 class="btn btn-lg btn-outline-light mt-3">
                                 View Full Routine <i class="fas fa-chevron-right ms-2"></i>
@@ -129,15 +182,15 @@ $stmt->close();
         </div>
     </div>
     <!-- footer -->
-    <footer class="bg-dark text-light py-4">
+    <footer class="py-4 dark-background">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="mb-1">&copy; 2024 GymPro. All rights reserved.</p>
-                    <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                    <p class="mb-1 light-text">&copy; 2025 ObsidianMuscle. All rights reserved.</p>
+                    <a href="#" class="light-text me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="light-text me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="light-text me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="light-text"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>

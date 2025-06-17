@@ -12,19 +12,25 @@ $muscle_groups = ["trapz", "shoulders", "chest", "abs", "back", "biceps", "trice
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Custom Routine - GymPro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link href="../css/styles.css" rel="stylesheet">
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Built-in - Obsidian Muscle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=fitness_center" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/colours.css" rel="stylesheet" />
+    <link href="../css/fun.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="light-background">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-navbar">
         <div class="container">
-            <a class="navbar-brand" href="dashboard.php">GymPro</a>
+            <a class="navbar-brand navbar-custom" href="dashboard.php"><span
+                    class="obsidian-nav">Obsidian</span>Muscle</a>
+            </a>
             <div id="google_translate_element"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,22 +39,28 @@ $muscle_groups = ["trapz", "shoulders", "chest", "abs", "back", "biceps", "trice
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="dashboard.php">
-                            <i class="fa-solid fa-address-card"></i> Dashboard
+                        <a class="nav-link nav-link-custom" aria-current="page" href="dashboard.php">
+                            <i class="fa-solid fa-address-card"></i> Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="builtin.php">
-                            <i class="fas fa-list-alt me-1"></i>Built-in
+                        <a class="nav-link nav-link-custom" href="community.php">
+                            <i class="fas fa-users me-1"></i>Community
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="custom.php">
-                            <i class="fas fa-cog me-1"></i>Custom
+                        <a class="nav-link nav-link-custom" href="custom.php">
+                            <i class="fas fa-bookmark me-1"></i>Library
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">
+                        <a class="nav-link nav-link-custom" href="builtin.php">
+                            <i class="fas fa-box-archive me-1"></i>Built-in
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="logout.php">
                             <i class="fas fa-sign-out-alt me-1"></i>Log Out
                         </a>
                     </li>
@@ -103,15 +115,15 @@ $muscle_groups = ["trapz", "shoulders", "chest", "abs", "back", "biceps", "trice
         </form>
     </div>
     <!-- footer -->
-    <footer class="bg-dark text-light py-4">
+    <footer class="py-4 dark-background">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="mb-1">&copy; 2024 GymPro. All rights reserved.</p>
-                    <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                    <p class="mb-1 light-text">&copy; 2025 ObsidianMuscle. All rights reserved.</p>
+                    <a href="#" class="light-text me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="light-text me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="light-text me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="light-text"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>

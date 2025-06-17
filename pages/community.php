@@ -5,8 +5,11 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
-$sql = "SELECT * FROM routine WHERE id = 0";
+
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM routine WHERE id != ? AND id != 0";
 $stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -15,7 +18,6 @@ while ($row = $result->fetch_assoc()) {
     $routines[] = $row;
 }
 $stmt->close();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +25,9 @@ $stmt->close();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Built-in - Obsidian Muscle</title>
+    <title>Community Discovery - Obsidian Muscle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=fitness_center" />
     <link href="../css/styles.css" rel="stylesheet" />
     <link href="../css/colours.css" rel="stylesheet" />
     <link href="../css/fun.css" rel="stylesheet" />
@@ -49,13 +49,12 @@ $stmt->close();
     </style>
 </head>
 
-<body>
+<body class="light-background">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-navbar">
         <div class="container">
             <a class="navbar-brand navbar-custom" href="dashboard.php"><span
                     class="obsidian-nav">Obsidian</span>Muscle</a>
-            </a>
             </a>
             <div id="google_translate_element"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -65,12 +64,12 @@ $stmt->close();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom " aria-current="page" href="dashboard.php">
+                        <a class="nav-link nav-link-custom" aria-current="page" href="dashboard.php">
                             <i class="fa-solid fa-address-card"></i> Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="community.php">
+                        <a class="nav-link nav-link-custom active-custom" href="#">
                             <i class="fas fa-users me-1"></i>Community
                         </a>
                     </li>
@@ -80,7 +79,7 @@ $stmt->close();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-custom active-custom" href="builtin.php">
+                        <a class="nav-link nav-link-custom" href="builtin.php">
                             <i class="fas fa-box-archive me-1"></i>Built-in
                         </a>
                     </li>
@@ -94,11 +93,13 @@ $stmt->close();
             </div>
         </div>
     </nav>
-    <!-- containers -->
-    <div class="container mt-5">
-        <h1 class="text-center fw-bold mb-5 dark-text">Editors' Built-in Programs</h1>
-        <h4 class="text-center mb-5 small-title">Select a workout program that suits your fitness journey, made by our
-            editors!</h4>
+    <!-- dashbord containers -->
+    <div class="container-fluid mt-5 dashboard-container">
+        <h1 class="text-center fw-bold mb-5 dark-text">Community Discovery!</h1>
+        <!-- username display -->
+        <h4 class="text-center mb-5 small-title">From users to users, discover the best routines shared by the
+            community!</h4>
+        </h4>
         <div class="row row justify-content-center">
             <?php foreach ($routines as $routine):
                 $sql = "SELECT max(day) FROM routine_exercises WHERE routine_nbr = ?";
@@ -150,7 +151,7 @@ $stmt->close();
                                 </div>
                                 <div>
                                     <span class="light-red-text">
-                                        <i class="fa-solid fa-heart red-text"></i> 5 Likes
+                                        <i class="fa-solid fa-heart red-text"></i> 0 Likes
                                     </span>
                                 </div>
                             </div>
